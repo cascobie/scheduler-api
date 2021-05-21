@@ -17,6 +17,7 @@ module.exports = (db, updateAppointment) => {
       ORDER BY appointments.id
     `
     ).then(({ rows: appointments }) => {
+      console.log("SERVER ROUTES", appointments);
       response.json(
         appointments.reduce(
           (previous, current) => ({ ...previous, [current.id]: current }),
